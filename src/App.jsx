@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
 import Navigation from "./components/Navigaion.jsx";
 
 function App() {
@@ -9,8 +10,10 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
-      <h1>gg</h1>
+      <Container>
+        <Navigation />
+        <h1>Application</h1>
+      </Container>
     </div>
   );
 }
