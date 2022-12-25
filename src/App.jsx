@@ -9,13 +9,10 @@ import Success from "./pages/Success.jsx";
 import Cancel from "./pages/Cancel.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <Container>
         <Navigation />
-        <h1>Application</h1>
         <Browser>
           <Routes>
             <Route index element={<Store />} />
