@@ -30,6 +30,8 @@ const getProductId = (id) => {
     console.log(`product data doesn't exist: ${id}`);
     return undefined;
   }
+
+  return productId;
 };
 
 export { data, getProductId };
