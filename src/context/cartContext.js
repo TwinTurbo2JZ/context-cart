@@ -26,8 +26,42 @@ export function CartProvider({ children }) {
   }
 
   function addOneToCart(id) {
-    const product = setCartProducts();
+    const quantity = getProductQuantity(id);
+
+    if (quantity === 0) {
+      setCartProducts([...cartProducts, { id: id, quantity: 1 }]);
+    } else {
+      cartProducts.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      );
+    }
   }
+
+  function deleteFromCart(id) {
+    setCartProducts(
+      cartProducts.filter((product) => {
+        return product.id != id;
+      })
+    );
+  }
+
+  function removeOneFromCart(id) {
+    const quantity = getProductQuantity(id);
+
+    if (quantity === 1) {
+      deleteFromCart(id);
+    } else {
+      cartProducts.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      );
+    }
+  }
+
+  function getTotalCost() {}
 
   const contextvalue = {
     items: cartProducts,
