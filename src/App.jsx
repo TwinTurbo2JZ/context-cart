@@ -8,20 +8,24 @@ import Store from "./pages/Store.jsx";
 import Success from "./pages/Success.jsx";
 import Cancel from "./pages/Cancel.jsx";
 
+import CartProvider from "./context/cartContext.jsx";
+
 function App() {
   return (
-    <div className="App">
-      <Container>
-        <Navigation />
-        <Browser>
-          <Routes>
-            <Route index element={<Store />} />
-            <Route path="success" element={<Success />} />
-            <Route path="cancel" element={<Cancel />} />
-          </Routes>
-        </Browser>
-      </Container>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <Container>
+          <Navigation />
+          <Browser>
+            <Routes>
+              <Route index element={<Store />} />
+              <Route path="success" element={<Success />} />
+              <Route path="cancel" element={<Cancel />} />
+            </Routes>
+          </Browser>
+        </Container>
+      </div>
+    </CartProvider>
   );
 }
 

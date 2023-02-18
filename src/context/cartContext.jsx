@@ -31,10 +31,12 @@ export function CartProvider({ children }) {
     if (quantity === 0) {
       setCartProducts([...cartProducts, { id: id, quantity: 1 }]);
     } else {
-      cartProducts.map((product) =>
-        product.id === id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
+      setCartProducts(
+        cartProducts.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        )
       );
     }
   }
@@ -53,15 +55,27 @@ export function CartProvider({ children }) {
     if (quantity === 1) {
       deleteFromCart(id);
     } else {
-      cartProducts.map((product) =>
-        product.id === id
-          ? { ...product, quantity: product.quantity - 1 }
-          : product
+      setCartProducts(
+        cartProducts.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
       );
     }
   }
 
-  function getTotalCost() {}
+  function getTotalCost() {
+    let totalCost = 0;
+
+    cartProducts.map((cartItem) => {
+      const productData = getProductId(cartItem.id);
+
+      totalCost += productData.price * cartItem.quantity;
+    });
+
+    return totalCost;
+  }
 
   const contextvalue = {
     items: cartProducts,
@@ -76,3 +90,5 @@ export function CartProvider({ children }) {
     <CartContext.Provider value={contextvalue}>{children}</CartContext.Provider>
   );
 }
+
+export default CartProvider;

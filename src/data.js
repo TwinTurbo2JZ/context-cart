@@ -24,6 +24,7 @@ const data = [
 ];
 
 const getProductId = (id) => {
+  /// actually returns product data
   let productId = data.find((i) => i.id === id);
 
   if (productId == undefined) {
