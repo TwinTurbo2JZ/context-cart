@@ -11,7 +11,7 @@ const CartItem = ({ item }) => {
       <p>Name: {productData.name}</p>
       <p>quantity: {item.quantity}</p>
       <p>Price: {(item.quantity * productData.price).toFixed(2)} Rs</p>
-      <Button sm onClick={() => cart.deleteFromCart(item.id)}>
+      <Button size="sm" onClick={() => cart.deleteFromCart(item.id)}>
         Remove
       </Button>
       <hr />
