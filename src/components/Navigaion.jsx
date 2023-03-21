@@ -40,6 +40,9 @@ const Navigation = () => {
                 //<h1>{item.id}</h1>
                 <CartItem key={key} item={item}></CartItem>
               ))}
+
+              <h1>Total:{cart.getTotalCost().toFixed(2)}</h1>
+              <Button variant="success">Buy</Button>
             </>
           ) : (
             <p>So Empty, much wow!</p>

@@ -14,12 +14,12 @@ const data = [
   {
     id: 3,
     name: "product 3",
-    price: "100",
+    price: "200",
   },
   {
     id: 4,
     name: "product4",
-    price: "100",
+    price: "500",
   },
 ];
 
